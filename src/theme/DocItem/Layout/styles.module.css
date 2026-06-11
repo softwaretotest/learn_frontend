@@ -1,0 +1,39 @@
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+    margin-top: 0;
+}
+
+@media (min-width: 997px) {
+    .docItemCol {
+        max-width: 75% !important;
+    }
+}
+
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+    margin-top: 0;
+}
+
+@media (min-width: 997px) {
+    .docItemCol {
+        max-width: 75% !important;
+    }
+}
+
+/* ค้นหาคลาสนี้ในไฟล์เดิมของคุณ แล้วแก้ไขค่าข้างในให้แผ่กว้าง 100% เต็มจอแบบนี้ครับ */
+.docItemContainer {
+    max-width: 100% !important; /* ปลดล็อก 825px หรือ 990px เดิมทิ้งไป */
+    width: 100% !important;
+    margin: 0 auto;
+}
+
+/* เพิ่มเติม (ถ้ามีคลาสด้านล่างนี้ในไฟล์เดิม หรือจะพิมพ์ต่อท้ายไปเลยก็ได้ครับ) */
+.col {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* บังคับซ่อนแผง Footer ด้านล่างทั้งหมดเฉพาะหน้านี้ */
+:global(.footer) {
+    display: none !important;
+}

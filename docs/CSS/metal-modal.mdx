@@ -1,0 +1,44 @@
+---
+title: Metal Modal
+sidebar_position: 1
+---
+
+ยินดีต้อนรับสู่บทเรียนแบบ Interactive ลองแก้ไขโค้ดด้านล่างนี้เพื่อปรับแต่งสไตล์ของกล่องข้อความได้ทันที!
+
+```jsx live
+function MetalModalEditor() {
+    // 👇 คุณสามารถลองแก้ตัวเลขหรือสีใน Object CSS ตรงนี้เพื่อดูผลลัพธ์ได้เลย
+    const modalStyle = {
+        background: "linear-gradient(145deg, #555555, #222222)",
+        boxShadow: "10px 10px 30px #1a1a1a, -10px -10px 30px #4d4d4d",
+        border: "2px solid #888888",
+        borderRadius: "15px",
+        padding: "30px",
+        color: "#ffffff",
+        textAlign: "center",
+        maxWidth: "350px",
+        margin: "20px auto",
+        fontFamily: "sans-serif",
+    };
+
+    const buttonStyle = {
+        background: "#666666",
+        border: "1px solid #999999",
+        color: "white",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        cursor: "pointer",
+        marginTop: "15px",
+    };
+
+    return (
+        <div style={modalStyle}>
+            <h3>🛸 Metal Premium Modal</h3>
+            <p>นี่คือโมดอลสไตล์เหล็กขัดเงาแบบ Interactive</p>
+            <button style={buttonStyle} onClick={() => alert("ทำงานได้จริง!")}>
+                คลิกทดสอบปุ่ม
+            </button>
+        </div>
+    );
+}
+```

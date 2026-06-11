@@ -1,0 +1,144 @@
+---
+title: Font Sizer (REM vs KEY-WORD)
+sidebar_position: 1
+---
+
+import CSSEditor from "@site/src/components/CSSEditor/index.js";
+
+<CSSEditor 
+  defaultHTML={`<div class="layout">
+
+  <!-- SYSTEM A -->
+
+<div class="box">
+    <h4>System A: REM Scale</h4>
+    <input id="remInput" class="sp-input" value="123" />
+</div>
+
+  <!-- SYSTEM B -->
+
+<div class="box">
+    <h4>System B: Keyword Scale</h4>
+    <input id="keywordInput" class="sp-input" value="123" />
+</div>
+
+</div>
+
+<script>
+  const getKeywordFont = (value) => {
+    const length = value.length;
+
+    return length >= 13
+      ? "count-xx-small"
+      : length >= 11
+        ? "count-x-small"
+        : length >= 9
+          ? "count-smaller"
+          : length >= 7
+            ? "count-small"
+            : length >= 5
+              ? "count-medium"
+              : length >= 3
+                ? "count-x-large"
+                : "count-xx-large";
+  };
+
+  const getRemFont = (value) => {
+    const length = value.length;
+
+    return length >= 13
+      ? "rem-xx-small"
+      : length >= 11
+        ? "rem-x-small"
+        : length >= 9
+          ? "rem-smaller"
+          : length >= 7
+            ? "rem-small"
+            : length >= 5
+              ? "rem-medium"
+              : length >= 3
+                ? "rem-x-large"
+                : "rem-xx-large";
+  };
+
+  const checkOverflow = (el) => {
+    return el.scrollWidth > el.clientWidth;
+  };
+
+  const bind = (id, mapper) => {
+    const input = document.getElementById(id);
+
+    input.addEventListener("input", (e) => {
+      const value = e.target.value;
+
+      input.className = "sp-input " + mapper(value);
+
+      if (checkOverflow(input)) {
+        input.classList.add("overflow");
+      } else {
+        input.classList.remove("overflow");
+      }
+    });
+  };
+
+  bind("remInput", getRemFont);
+  bind("keywordInput", getKeywordFont);
+</script>`}
+
+defaultCSS={`/_ STACK LAYOUT (FIXED: your request) _/
+.layout {
+display: flex;
+flex-direction: column; /_ 👈 FIX: แยกคนละบรรทัด _/
+gap: 20px;
+padding: 20px;
+background: #1e1e1e;
+color: white;
+}
+
+.box {
+padding: 20px;
+border: 1px solid #444;
+background: #2a2a2a;
+}
+
+/_ FIXED INPUT _/
+.sp-input {
+width: 200px;
+display: block;
+
+overflow: hidden;
+white-space: nowrap;
+
+text-align: center;
+
+padding: 10px;
+border: 1px solid #555;
+background: #111;
+color: white;
+}
+
+/_ KEYWORD SYSTEM _/
+.count-xx-large { font-size: xx-large; }
+.count-x-large { font-size: x-large; }
+.count-medium { font-size: medium; }
+.count-small { font-size: small; }
+.count-smaller { font-size: smaller; }
+.count-x-small { font-size: x-small; }
+.count-xx-small { font-size: xx-small; }
+
+/_ REM SYSTEM _/
+.rem-xx-large { font-size: 3.2rem; }
+.rem-x-large { font-size: 2.9rem; }
+.rem-medium { font-size: 2.6rem; }
+.rem-small { font-size: 2.3rem; }
+.rem-smaller { font-size: 2rem; }
+.rem-x-small { font-size: 1.7rem; }
+.rem-xx-small { font-size: 1.4rem; }
+
+/_ REAL OVERFLOW (JS TRIGGERED) _/
+.overflow {
+background: #df5555 !important;
+border: 1px solid red !important;
+box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}`}
+/>
