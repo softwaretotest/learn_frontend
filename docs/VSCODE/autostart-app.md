@@ -1,4 +1,4 @@
-# VS Code + Laravel (Backend Setup)
+# auto start app
 
 ## 📌 การเปิดโปรเจกต์
 
@@ -11,7 +11,9 @@
 
 ---
 
-## 📌 ความหมายของ CWD
+## LARAVEL
+
+### 📌 ความหมายของ CWD
 
 `cwd` (Current Working Directory) คือโฟลเดอร์ที่คำสั่งจะถูกรันอยู่
 

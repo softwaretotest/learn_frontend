@@ -1,4 +1,6 @@
-# คู่มือการติดตั้ง Laravel แบบเต็มรูปแบบ (Authentication, Validation, Eloquent ORM)
+# install Laravel full
+
+## คู่มือการติดตั้ง Laravel แบบเต็มรูปแบบ (Authentication, Validation, Eloquent ORM)
 
 คู่มือนี้แนะนำขั้นตอนการติดตั้ง Laravel Framework เวอร์ชันล่าสุด พร้อมระบบจัดการสมาชิก (Authentication & Registration), ระบบตรวจสอบข้อมูล (Validation) และระบบจัดการฐานข้อมูล (Eloquent ORM) ผ่านโปรแกรม **VS Code**
 
