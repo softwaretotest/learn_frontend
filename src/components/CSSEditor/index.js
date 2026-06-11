@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import Editor from "react-simple-code-editor";
-import Prism from "prismjs";
-import "prismjs/components/prism-markup"; // ไฮไลท์สำหรับ HTML
-import "prismjs/components/prism-css"; // ไฮไลท์สำหรับ CSS
-import "prismjs/themes/prism-okaidia.css";
 
 export default function CSSEditor({ defaultHTML = "", defaultCSS = "" }) {
     const [html, setHtml] = useState(defaultHTML);
