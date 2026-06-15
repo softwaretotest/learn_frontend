@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Editor from "react-simple-code-editor";
-
+import Prism from "prismjs";
 export default function CSSEditor({ defaultHTML = "", defaultCSS = "" }) {
     const [html, setHtml] = useState(defaultHTML);
     const [css, setCss] = useState(defaultCSS);

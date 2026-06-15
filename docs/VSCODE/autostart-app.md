@@ -111,4 +111,12 @@ Configure VS Code Tasks to automatically run both `npm run dev` and `php artisan
         },
 ```
 
-หน้าที่ของมันคือการบังคับเส้นทาง (Current Working Directory):"cwd": "${workspaceFolder}" แปลว่า: บังคับให้ VS Code รันคำสั่งนี้ที่ โฟลเดอร์นอกสุด (Root) ของโปรเจกต์เสมอ [1]ทำไมถึงไม่จำเป็น? เพราะโดยปกติแล้วเมื่อเราเปิดโฟลเดอร์ใน VS Code ตัว Terminal จะเริ่มต้นทำงานที่โฟลเดอร์นอกสุด (${workspaceFolder}) เป็นค่าเริ่มต้นอยู่แล้วครับ [1]
+หน้าที่ของมันคือการบังคับเส้นทาง (Current Working Directory):
+
+```json
+"cwd": "${workspaceFolder}"
+```
+
+แปลว่า: บังคับให้ VS Code รันคำสั่งนี้ที่โฟลเดอร์นอกสุด (Root) ของโปรเจกต์เสมอ
+
+ทำไมถึงไม่จำเป็น? เพราะโดยปกติแล้วเมื่อเราเปิดโฟลเดอร์ใน VS Code ตัว Terminal จะเริ่มต้นทำงานที่โฟลเดอร์นอกสุด (`${workspaceFolder}`) เป็นค่าเริ่มต้นอยู่แล้วครับ

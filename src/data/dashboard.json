@@ -1,0 +1,67 @@
+[
+  {
+    "id": "0_IDEA_WEB",
+    "label": "IDEA WEB",
+    "slug": "/docs/IDEA_WEB/website_structure",
+    "children": []
+  },
+  {
+    "id": "CSS",
+    "label": "CSS",
+    "slug": "/docs/CSS/metal-modal-w3school",
+    "children": [
+      {
+        "id": "Fontsizer",
+        "label": "Fontsizer",
+        "slug": "/docs/font-sizer-tool"
+      }
+    ]
+  },
+  {
+    "id": "GITHUB",
+    "label": "GITHUB",
+    "slug": "/docs/GITHUB/git-cmd",
+    "children": []
+  },
+  {
+    "id": "LARAVEL",
+    "label": "LARAVEL",
+    "slug": "/docs/LARAVEL/ecommerce_full",
+    "children": []
+  },
+  {
+    "id": "MARKDOWN",
+    "label": "MARKDOWN",
+    "slug": "/docs/MARKDOWN/edit_layout",
+    "children": [
+      {
+        "id": "tutorial-basics",
+        "label": "tutorial basics",
+        "slug": "/docs/category/tutorial---basics"
+      },
+      {
+        "id": "tutorial-extras",
+        "label": "tutorial extras",
+        "slug": "/docs/category/tutorial---extras"
+      }
+    ]
+  },
+  {
+    "id": "RENDER",
+    "label": "RENDER",
+    "slug": "/docs/RENDER/first_deploy",
+    "children": []
+  },
+  {
+    "id": "SUPABASE",
+    "label": "SUPABASE",
+    "slug": "/docs/SUPABASE/create_db",
+    "children": []
+  },
+  {
+    "id": "VSCODE",
+    "label": "VSCODE",
+    "slug": "/docs/VSCODE/autostart-app",
+    "children": []
+  }
+]
