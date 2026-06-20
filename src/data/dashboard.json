@@ -6,6 +6,12 @@
     "children": []
   },
   {
+    "id": "CONVENTION",
+    "label": "CONVENTION",
+    "slug": "/docs/CONVENTION/naming",
+    "children": []
+  },
+  {
     "id": "CSS",
     "label": "CSS",
     "slug": "/docs/CSS/metal-modal-w3school",
@@ -30,9 +36,15 @@
     "children": []
   },
   {
+    "id": "LARAVEL_BOT",
+    "label": "LARAVEL BOT",
+    "slug": "/docs/LARAVEL_BOT/Flow_Project_M",
+    "children": []
+  },
+  {
     "id": "MARKDOWN",
     "label": "MARKDOWN",
-    "slug": "/docs/MARKDOWN/edit_layout",
+    "slug": "/docs/MARKDOWN/00_dashboard",
     "children": [
       {
         "id": "tutorial-basics",
@@ -53,9 +65,27 @@
     "children": []
   },
   {
+    "id": "SQL",
+    "label": "SQL",
+    "slug": "/docs/SQL/order",
+    "children": []
+  },
+  {
     "id": "SUPABASE",
     "label": "SUPABASE",
     "slug": "/docs/SUPABASE/create_db",
+    "children": []
+  },
+  {
+    "id": "TEMPOLARY",
+    "label": "TEMPOLARY",
+    "slug": "/docs/TEMPOLARY/stacks",
+    "children": []
+  },
+  {
+    "id": "TERM",
+    "label": "TERM",
+    "slug": "/docs/TERM/LARAVEL",
     "children": []
   },
   {

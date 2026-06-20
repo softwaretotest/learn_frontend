@@ -10,7 +10,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    themes: ["@docusaurus/theme-live-codeblock"],
+    themes: ["@docusaurus/theme-live-codeblock", "@docusaurus/theme-mermaid"],
     title: "My Site",
     tagline: "Dinosaurs are cool",
     favicon: "img/favicon.ico",
@@ -151,9 +151,19 @@ const config = {
             prism: {
                 theme: prismThemes.github,
                 darkTheme: prismThemes.dracula,
-                additionalLanguages: ["ini", "bash", "php", "json", "sql"],
+                additionalLanguages: [
+                    "ini",
+                    "bash",
+                    "php",
+                    "json",
+                    "sql",
+                    "powershell",
+                ],
             },
         }),
+    markdown: {
+        mermaid: true,
+    },
 };
 
 export default config;

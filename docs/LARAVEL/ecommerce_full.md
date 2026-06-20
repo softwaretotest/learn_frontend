@@ -17,6 +17,12 @@ composer create-project laravel/laravel ecommerce
 # 2. Move inside your new project folder
 cd ecommerce
 
+npm install
+
+if has error
+
+npm install --legacy-peer-deps
+
 # 3. Download the Laravel Breeze starter kit (dev dependency)
 composer require laravel/breeze --dev
 
