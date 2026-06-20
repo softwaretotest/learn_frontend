@@ -36,9 +36,9 @@
     "children": []
   },
   {
-    "id": "LARAVEL_BOT",
-    "label": "LARAVEL BOT",
-    "slug": "/docs/LARAVEL_BOT/Flow_Project_M",
+    "id": "LARAVEL_M-BOT",
+    "label": "LARAVEL M BOT",
+    "slug": "/docs/LARAVEL_M-BOT/Flow_PHP",
     "children": []
   },
   {
@@ -85,7 +85,7 @@
   {
     "id": "TERM",
     "label": "TERM",
-    "slug": "/docs/TERM/LARAVEL",
+    "slug": "/docs/TERM/software",
     "children": []
   },
   {

@@ -10,6 +10,9 @@ php artisan migrate
 
 ```bash
 php artisan make:migration create_products_table
+php artisan make:migration create_shops_table
+
+php artisan migrate -fresh
 
 php artisan migrate:rollback --step=1
 ```
