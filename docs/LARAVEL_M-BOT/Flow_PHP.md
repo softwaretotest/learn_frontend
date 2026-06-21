@@ -2,46 +2,52 @@
 
 ```mermaid
 graph TD
-    %% กำหนดสไตล์ Minimalist
+    %% Define Styles
     classDef makerClass stroke:#3498db,stroke-width:2px,color:#3498db,font-weight:bold,fill:none;
     classDef makeMigClass stroke:#e67e22,stroke-width:2px,color:#e67e22,font-weight:bold,fill:none;
     classDef checkClass stroke:#9b59b6,stroke-width:2px,color:#9b59b6,font-weight:bold,fill:none;
+    classDef fileClass stroke:#27ae60,stroke-width:2px,color:#27ae60,font-weight:bold,fill:none;
+    classDef schemaClass stroke:#f1c40f,stroke-width:2px,color:#f1c40f,font-weight:bold,fill:none;
 
-    %% ฟังก์ชันของ Maker
-    Maker_Run[Maker<br/>run]:::makerClass
-    Maker_CheckTableName[Maker<br/>checkTableName]:::makerClass
-    Maker_AnalyzeField[Maker<br/>analyzeField]:::makerClass
+    %% Nodes
+    Maker_Run[Maker_run]:::makerClass
+    Maker_Check[Maker_checkTableName]:::makerClass
+    Checker_Run[CheckDuplicate_checkDuplicate]:::checkClass
+    MakeSchema_Sep[MakeSchema_separate_db_ui]:::schemaClass
 
-    %% ฟังก์ชันของ MakeMigration
-    MakeMigration_Run[MakeMigration<br/>run]:::makeMigClass
-    MakeMigration_ReplaceExisting{Exists?}:::makeMigClass
-    MakeMigration_ReplaceExisting_Func[MakeMigration<br/>replaceExisting]:::makeMigClass
-    MakeMigration_CreateNew[MakeMigration<br/>createNew]:::makeMigClass
-    MakeMigration_UpdateMigration[MakeMigration<br/>updateMigration]:::makeMigClass
-    MakeMigration_UpdateLines[MakeMigration<br/>updateLines]:::makeMigClass
-    MakeMigration_AddMissingLines[MakeMigration<br/>addMissingLines]:::makeMigClass
-    MakeMigration_MakeLine[MakeMigration<br/>makeLine]:::makeMigClass
+    MakeMig_Run[MakeMigration_run]:::makeMigClass
+    MakeMig_Replace[MakeMigration_replaceExisting]:::makeMigClass
+    MakeMig_Update[MakeMigration_updateMigration]:::makeMigClass
 
-    %% ฟังก์ชันของ Checker
-    Checker_CheckDuplicate[Checker<br/>checkDuplicate]:::checkClass
+    DBOpt_MakeLines[DBOption_makeLines]:::schemaClass
+    DBOpt_MakeLine[DBOption_makeLine]:::schemaClass
+    DBOpt_AddMissing[DBOption_addMissingLines]:::schemaClass
 
-    %% Flow การทำงาน
-    Start((Run)) --> Maker_Run
-    Maker_Run --> Checker_CheckDuplicate
-    Checker_CheckDuplicate --> Maker_CheckTableName
-    Maker_CheckTableName --> Maker_AnalyzeField
-    Maker_AnalyzeField --> MakeMigration_Run
+    MigFile_Create[MigrationFile_createNew]:::fileClass
+    MigFile_Make[MigrationFile_makeFile]:::fileClass
 
-    MakeMigration_Run --> MakeMigration_ReplaceExisting
-    MakeMigration_ReplaceExisting -- Yes --> MakeMigration_ReplaceExisting_Func
-    MakeMigration_ReplaceExisting -- No --> MakeMigration_CreateNew
+    %% Main Start
+    Start((Start)) --> Maker_Run
 
-    MakeMigration_ReplaceExisting_Func --> MakeMigration_UpdateMigration
-    MakeMigration_UpdateMigration --> MakeMigration_UpdateLines
-    MakeMigration_UpdateMigration --> MakeMigration_AddMissingLines
+Maker_Run --> MakeMig_Run
 
-    MakeMigration_UpdateLines --> MakeMigration_MakeLine
-    MakeMigration_AddMissingLines --> MakeMigration_MakeLine
+    %% Return Data Flow
+    Checker_Run -.->|'$bool'| Maker_Run
+    Maker_Check -.->|'$tableName'| Maker_Run
+    MakeSchema_Sep -.->|'$schema'| Maker_Run
 
-    MakeMigration_CreateNew --> MakeMigration_ReplaceExisting_Func
+    MigFile_Make -.->|'$filePath'| MigFile_Create
+    MigFile_Create -.->|'$filePath'| MakeMig_Replace
+
+    DBOpt_MakeLine -.->|'$line'| DBOpt_MakeLines
+    DBOpt_MakeLine -.->|'$line'| DBOpt_AddMissing
+
+    DBOpt_MakeLines -.->|'$lines'| MakeMig_Update
+    DBOpt_AddMissing -.->|'$lines'| MakeMig_Update
+    MakeMig_Update -.->|'$isUpdated'| MakeMig_Replace
+
+    MakeMig_Replace -.->|'$success'| MakeMig_Run
+
+    %% Final End
+    MakeMig_Run --> End((End))
 ```
