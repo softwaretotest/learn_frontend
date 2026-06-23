@@ -1,4 +1,4 @@
-## Phase 1: Product Only
+# Phase 1: Maker.php
 
 step of making script for automation
 to generate update flow for creating backend laravel
@@ -124,7 +124,6 @@ composer dump-autoload -o
 เหมาะสำหรับ: Production หรือตอนที่คุณต้องการความเร็วสูงสุด
 
 ```bash
-php app/Constant/Bot/MakerTest.php
 
 php artisan tinker
 \App\Constant\UserConstant::fields();
@@ -136,7 +135,7 @@ php artisan tinker
 ## Make User Migration
 
 ```bash
-php app/Constant/0_MakerTest.php
+php app/Constant/0_Runner.php
 
 php artisan migrate:fresh
 

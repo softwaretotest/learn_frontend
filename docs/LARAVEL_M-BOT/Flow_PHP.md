@@ -12,7 +12,7 @@ graph TD
     %% Nodes
     Maker_Run[Maker_run]:::makerClass
     Maker_Check[Maker_checkTableName]:::makerClass
-    Checker_Run[CheckDuplicate_checkDuplicate]:::checkClass
+    Checker_Run[Checker_checkDuplicate]:::checkClass
     MakeSchema_Sep[MakeSchema_separate_db_ui]:::schemaClass
 
     MakeMig_Run[MakeMigration_run]:::makeMigClass
