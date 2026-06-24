@@ -38,13 +38,13 @@
   {
     "id": "LARAVEL_M-BOT",
     "label": "LARAVEL M BOT",
-    "slug": "/docs/LARAVEL_M-BOT/0_EP1_Making_M-BOT",
+    "slug": "/docs/LARAVEL_M-BOT/EP1_Making_M-BOT",
     "children": []
   },
   {
     "id": "MARKDOWN",
     "label": "MARKDOWN",
-    "slug": "/docs/MARKDOWN/00_dashboard",
+    "slug": "/docs/MARKDOWN/dashboard",
     "children": [
       {
         "id": "tutorial-basics",

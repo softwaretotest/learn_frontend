@@ -3,13 +3,6 @@ import path from "path";
 
 const DOCS_DIR = "./docs";
 const OUTPUT = "./src/data/dashboard.json";
-
-function cleanName(name) {
-    // 0_IDEA_WEB -> IDEA_WEB
-    // 10_LARAVEL -> LARAVEL
-    return name.replace(/^\d+_/, "");
-}
-
 function cleanLabel(label) {
     return cleanName(label).replaceAll("_", " ").replaceAll("-", " ");
 }
@@ -18,12 +11,19 @@ function isMarkdown(file) {
     return file.endsWith(".md") || file.endsWith(".mdx");
 }
 
-function getSlug(folder, file) {
-    const cleanFolder = cleanName(folder);
+function cleanName(name) {
+    // 0_IDEA_WEB -> IDEA_WEB
+    // 10_LARAVEL -> LARAVEL
+    return name.replace(/^\d+_/, "");
+}
 
-    return `/docs/${cleanFolder}/${file}`
-        .replace(/\.mdx?$/, "")
-        .replace(/\\/g, "/");
+function getSlug(folder, file) {
+    // ตัดเลขนำหน้าออกจาก folder และ file
+    const cleanFolder = cleanName(folder);
+    const cleanFile = cleanName(file).replace(/\.mdx?$/, "");
+
+    // รวมเป็น path ที่ไม่มีตัวเลขนำหน้า
+    return `/docs/${cleanFolder}/${cleanFile}`;
 }
 
 function getCategorySlug(childPath) {
