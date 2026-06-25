@@ -7,7 +7,7 @@ composer require nikic/php-parser
 
 php -r "require 'App/Constant/1_MSync.php'; App\Constant\MSync::syncEntities();"
 
-php App/Constant/1_MSync.php
+php App/Constant/1_M_Sync.php
 
 php App/Constant/1_Constant_M_APP_to_JSON.php
 
@@ -23,14 +23,4 @@ php artisan cache:clear
 php artisan view:clear
 
 npm install --legacy-peer-deps
-```
-
-## Use UI Component from ui.shadcn.com
-
-https://ui.shadcn.com/docs/components/radix/tabs
-
-```bash
-npx shadcn@latest add tabs
- yes yes
- choose Nova
 ```

@@ -11,7 +11,7 @@ graph TD
     %% Entry Point
     Start((Start)) --> MSync_syncAll[MSync<br/>syncAll]:::mainCall
 
-    %% MSync Phase
+    %% M_Sync Phase
     MSync_syncAll --> MSync_runPHP[
                                     MSync
                                     runPHPToJSON
