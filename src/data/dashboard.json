@@ -6,6 +6,12 @@
     "children": []
   },
   {
+    "id": "1_AI",
+    "label": "AI",
+    "slug": "/docs/AI/GEMENI",
+    "children": []
+  },
+  {
     "id": "CONVENTION",
     "label": "CONVENTION",
     "slug": "/docs/CONVENTION/naming",
