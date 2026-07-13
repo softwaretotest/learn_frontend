@@ -158,6 +158,7 @@ const config = {
                     "json",
                     "sql",
                     "powershell",
+                    "javascript",
                 ],
             },
         }),

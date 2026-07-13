@@ -38,7 +38,7 @@
   {
     "id": "LARAVEL",
     "label": "LARAVEL",
-    "slug": "/docs/LARAVEL/ecommerce_full",
+    "slug": "/docs/LARAVEL/bash_cmd",
     "children": []
   },
   {
@@ -63,6 +63,12 @@
         "slug": "/docs/category/tutorial---extras"
       }
     ]
+  },
+  {
+    "id": "REACT",
+    "label": "REACT",
+    "slug": "/docs/REACT/define_React_State",
+    "children": []
   },
   {
     "id": "RENDER",
