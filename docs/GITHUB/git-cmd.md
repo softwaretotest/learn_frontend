@@ -538,3 +538,15 @@ o@o MINGW64 ~/.vscode/react/ecommerce (main)
 $ git reset --hard
 HEAD is now at 9cd6c17 read only focus field in M_States
 ```
+
+## git restore app/Constant/M_JSON/App-Data.json
+
+```bash
+git restore app/Constant/M_JSON/App-Data.json
+```
+
+## diff a185a12 55dcc9b > diff_result.txt
+
+```bash
+git diff a185a12 55dcc9b > diff_result.txt
+```

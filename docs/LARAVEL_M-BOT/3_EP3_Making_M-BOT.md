@@ -1,27 +1,13 @@
 # Phase 3 : Binding States to UI
 
-![alt text](image-4.png)
+## first handle special field like currency
+
+![alt text](image-5.png)
 
 ## Work Plan
 
 ```text
-1. Concept: The Centralized Sync Engine
-แทนที่จะเขียน onChange ในทุกๆ Checkbox/Input ให้เราทำ SyncEngine ที่เป็นหัวใจหลัก:
 
-Single Source of Truth: use_M_Store คือเจ้าของความจริงทั้งหมด (ทุกตัวแปรที่อยู่ใน JSON)
-
-Atomic Update: ไม่ว่าจะลบ, เพิ่ม, หรือแก้ไข (Add/Delete/Update) ทุก Action ต้องถูกตีความเป็น State Update ใน Store เท่านั้น
-
-Auto-Serialization: ระบบต้องมีฟังก์ชันที่อ่านค่าจาก State แล้ว re-construct เป็น JSON โครงสร้างเดิมโดยอัตโนมัติ (ไม่ต้องเขียนโค้ดแก้ JSON ทีละจุด)
-
-2. แผนการทำงานที่ต้องทำวันนี้ (ก่อน 8 โมง)
-เพื่อไม่ให้งานบานปลาย เราต้องทำให้ State กับ JSON เป็นคนเดียวกันครับ:
-
-State Schema: ใน use_M_Store ต้องเปลี่ยนจากการแยก D_States / CD_States เป็น M_States ที่เก็บโครงสร้างเหมือน JSON ตัวจริง (Nested Object) เพื่อให้ง่ายต่อการดึงค่าไปโชว์ใน UI และง่ายต่อการ JSON.stringify ออกมาใช้
-
-Observer Pattern: ใช้ use_M_Store.subscribe() เพื่อเฝ้าดูการเปลี่ยนแปลงของ State ทั้งหมด ถ้ามีอะไรเปลี่ยน ให้สั่ง Save ลง JSON ทันที (หรือ Update Preview)
-
-Generic Input Handler: เขียนตัวเดียวจบ (เช่น handleChange(path, value)) ที่จะอัปเดต State ตาม path ที่ระบุ เช่น data.Entities.User.fields.name.type เป็นต้น
 ```
 
 ## CRUD M_States
@@ -76,4 +62,28 @@ Store & UI: ผมจะโฟกัสที่การทำให้ M_Store
 ปัจจุบัน Store เก็บแค่ D_States และ CD_States
 
 โซลูชันที่จะทำ: ปรับ setFocus ใน M_Store ให้บันทึกทุก Class ที่อยู่ใน JSON ของคุณ (S, D, U, CD, CU, CUD, F, T) เข้าไปใน Store ด้วย Logic ที่เป็น Generic สั้นๆ ไม่ต้องเขียนแยกทีละบรรทัด
+```
+
+## TODO CORTEX
+
+```text
+1. กฎเหล็ก: Data Consistency (ไม่มี Null/Undefined ปนเปื้อน)
+คุณต้องใช้ "Validator" ในระดับ Controller/Store ก่อนที่จะบันทึกค่าลง M_value ครับ:
+
+ถ้าไม่มีค่าใน Map: ห้าม Return undefined ออกไปโดยเด็ดขาด แต่ต้อง throw Error หรือ assert เพื่อให้รู้ทันทีว่า Mapping ของ Type นี้ยังไม่สมบูรณ์
+
+ทุกการทำ Transaction ต้องเป็น Atomic: ข้อมูลที่ผ่านการศัลยกรรม (D_HEAL) ต้องสมบูรณ์เสมอ ถ้าขาดตัวใดตัวหนึ่งไป ให้ Revert กลับไปที่สถานะปลอดภัย (Safe State)
+
+2. Logic การเปลี่ยน Dropdown (The Cortex Synchronization)
+นี่คือสิ่งที่ยากที่สุดที่คุณพูดถึง เมื่อ User เปลี่ยนประเภทข้อมูล (เช่นจาก INTEGER เป็น BOOLEAN):
+
+Event-Driven Reset: เมื่อมีการเปลี่ยน d:: (Data Type) ใน Dropdown ระบบต้องเรียกฟังก์ชัน OnTypeChange เพื่อจัดการ CD States ดังนี้:
+
+Check: ถ้ามี cd::DEFAULT อยู่ใน M_value ของ Field นั้น
+
+Clear/Invalidate: เมื่อ Type เปลี่ยน (เช่น d::DECIMAL -> d::BOOLEAN), สถานะ cd::DEFAULT เดิมจะกลายเป็น "Invalid Context" ทันที คุณต้องสั่ง Uncheck cd::DEFAULT ออกจาก checked_CD_States หรือ ล้างค่า Value เดิมทิ้ง
+
+Re-Initialize: เมื่อ User เลือก cd::DEFAULT ใหม่ ระบบจะวิ่งไปอ่าน DEFAULT_VALUES_MAP ตาม Type ใหม่ (ที่เป็น BOOLEAN) เพื่อหยิบค่า false มาใส่แทนที่ 0 ของ INTEGER
+
+โครงสร้าง Logic ที่แนะนำ:
 ```

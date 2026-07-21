@@ -29,6 +29,19 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* src/css/custom.css */
+
+/* ทำให้ตัวหนา (Bold / strong) ในเนื้อหามีสีสันโดดเด่นขึ้นใน Dark Mode */
+[data-theme="dark"] markdown,
+[data-theme="dark"] .theme-doc-markdown strong {
+    color: #61afef; /* เปลี่ยนเป็นสีที่คุณชอบ เช่น ฟ้า, เหลือง หรือส้ม */
+}
+
+/* หรือถ้าจะปรับสีของหัวข้อ Heading 2 (##) เฉพาะในหน้าเนื้อหา */
+[data-theme="dark"] .theme-doc-markdown h2 {
+    color: #98c379; /* สีเขียวสไตล์โทน Dracula/OneDark */
+}
+
 :root {
     --ifm-theme-color: #2e8555;
     --ifm-theme-color-dark: #256a45;
