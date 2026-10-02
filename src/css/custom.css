@@ -97,3 +97,89 @@
 .docusaurus-mermaid-container .edgeLabel p {
     white-space: nowrap !important;
 }
+
+.row:has(.sync-manager-flow-section) {
+    display: grid !important;
+    grid-template-columns: 660px 920px 220px;
+    gap: 16px;
+    width: max-content;
+    min-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: start;
+}
+
+.row:has(.sync-manager-flow-section) > .col:first-child {
+    grid-column: 1 / span 2;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row:has(.sync-manager-flow-section) > .col--3 {
+    grid-column: 3;
+    width: 220px !important;
+    max-width: 220px !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sync-manager-flow-section {
+    display: grid;
+    grid-template-columns: 660px 920px;
+    gap: 16px;
+    width: max-content;
+    margin: 16px 0 40px;
+    align-items: start;
+}
+
+.sync-manager-flow-description {
+    width: 660px;
+    padding: 16px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.sync-manager-flow-diagram {
+    width: 920px;
+    min-width: 920px;
+}
+
+.sync-manager-flow-diagram .docusaurus-mermaid-container {
+    width: 920px;
+    max-width: none;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.sync-manager-flow-diagram .docusaurus-mermaid-container svg {
+    max-width: none !important;
+    width: auto !important;
+}
+
+.row:has(.sync-manager-flow-section) > .col--3 {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 16px);
+    align-self: start;
+}
+
+.row:has(.sync-manager-flow-section)
+    .theme-doc-toc-desktop
+    > .table-of-contents
+    > li:has(> a[href="#diagram-details"])
+    > ul {
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.row:has(.sync-manager-flow-section)
+    article:has(.sync-manager-flow-section)
+    h3 {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+}

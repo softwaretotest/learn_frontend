@@ -33,7 +33,19 @@ graph LR
     class SCRIPTS green;
 ```
 
-## Frontend UI / Polling
+## Diagram Details
+
+### Frontend UI / Polling
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Opens the Sync Manager, starts or continues runs, reviews run status, and displays logs.
+
+**Example:** `run_ID + cursor` → request new log bytes → append logs and advance the cursor.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 280}}}%%
@@ -69,7 +81,20 @@ graph TD
     class API boundary;
 ```
 
-## API / Request Validation
+</div>
+</div>
+
+### API / Request Validation
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Validates requests and active target, then returns Sync Manager results through HTTP.
+
+**Example:** `scripts: ["json_to_php"]` → validate ID → `startRun()` → JSON response.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 280}}}%%
@@ -99,7 +124,20 @@ graph TD
     class UI,SERVICE boundary;
 ```
 
-## Sync Manager / Run Reservation
+</div>
+</div>
+
+### Sync Manager / Run Reservation
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Reserves a target run, persists its state, and launches the detached worker.
+
+**Example:** `target + script IDs` → `run_ID + initial phase` → worker command.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 280}}}%%
@@ -133,7 +171,20 @@ class REQUESTS,RESERVE,LAUNCH,STATUS_RESET,API_RESULT,PERSIST red;
 class API,WORKER,STORAGE boundary;
 ```
 
-## Sync Manager / Worker Execution
+</div>
+</div>
+
+### Sync Manager / Worker Execution
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Executes the scripts for a phase and records each result.
+
+**Example:** `initial_scripts` → `running` → `awaiting_review`, `completed`, or `failed`.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 280}}}%%
@@ -166,7 +217,20 @@ class EXECUTE,RUN,RESULT,REVIEW,OUTCOME,STATE red;
 class COMMAND,SCRIPTS,STORAGE boundary;
 ```
 
-## Persisted Status / Logs
+</div>
+</div>
+
+### Persisted Status / Logs
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Stores shared run state and private per-run output for workers and API requests.
+
+**Example:** `sync_status.json` → run state; `logs/{run_ID}.log` → bytes after `cursor`; `sync_status.lock` → serialized status access.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 280}}}%%
@@ -191,7 +255,20 @@ graph TD
     class SERVICE boundary;
 ```
 
-## Sync Scripts
+</div>
+</div>
+
+### Sync Scripts
+
+<div className="sync-manager-flow-section">
+<div className="sync-manager-flow-description">
+
+**Responsibility:** Maps selected script IDs and phase to the configured PHP scripts.
+
+**Example:** `json_to_php` → `2_M_Sync_JSON.php`; worker receives script output and exit code.
+
+</div>
+<div className="sync-manager-flow-diagram">
 
 ```mermaid
 graph TD
@@ -210,3 +287,6 @@ graph TD
     class SELECTED,SCRIPT_FILES,RESULT green;
     class SERVICE boundary;
 ```
+
+</div>
+</div>
