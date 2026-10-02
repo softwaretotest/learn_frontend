@@ -143,6 +143,11 @@
     box-sizing: border-box;
 }
 
+.sync-manager-flow-description .sync-manager-flow-summary {
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
 .sync-manager-flow-diagram {
     width: 920px;
     min-width: 920px;
