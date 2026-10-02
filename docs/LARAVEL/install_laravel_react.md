@@ -34,6 +34,49 @@ composer create-project laravel/laravel .
 php artisan breeze:install react
 ```
 
+#### on error do this:
+
+- install latest vite
+
+```bash
+npm install -D @vitejs/plugin-react@latest
+npm install
+npm run build
+```
+
+#### on error do this:
+
+![alt text](image.png)
+
+- if bootstrap.js not found
+  add resource/js/bootstrap.js
+  with this content and again npm run build:
+
+```javascript
+import axios from "axios";
+window.axios = axios;
+
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+```
+
+#### on error do this:
+
+![alt text](image-1.png)
+replace jsconfig.json with this content:
+
+```json
+{
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "ziggy-js": ["./vendor/tightenco/ziggy"]
+        },
+        "ignoreDeprecations": "6.0"
+    },
+    "exclude": ["node_modules", "public"]
+}
+```
+
 **ตัวเลือกที่จะขึ้นมาบน Terminal:**
 
 1. **Would you like to enable dark mode support?** -> เลือก `yes` หรือ `no` ตามชอบ

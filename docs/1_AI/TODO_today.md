@@ -2,26 +2,48 @@
 
 #### งานวันนี้
 
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+## automate all script
+
+- run script 1 and 2
+- stop script to ensure Entities.json and table order by User manuel action in UI or copy-paste Entities.json to target_app
+- run scirpt 3 and 4
+
+```php
+//1. SCRIPT-run :
+php App/Constant/2_M_Sync_JSON.php
+
+to do this:
+gen App/Constant/
+...EntityConstant.php ,
+...Constant_M.php ,
+...Constant_APP.php,
+
+//2. SCRIPT-run :
+php App/Constant/1_M_Sync.php    // to save Entities order for Laravel migration
+
+to do this:
+gen App/Constant/M_JSON/Entities.json // IMPORTANT = order of laravel tables to migrate
+gen App/Constant/M_JSON/App-Data.json // OPTIONAL = Archive of M-Project
+gen App/Constant/M_JSON/M-Data.json // OPTIONAL = Archive of M-Project
+
+//--- script Stop to ensure Entities.json , by user
+// Hier Dev open M-Project UI to config M-Data.json , APP-Data.json and Entities.json
+// User must make Order Entities in UI (per drag / drop)
+// so that Laravel Migration run through correct of table order , makes no error "Foreign Key - table not found"
 ![alt text](image-1.png)
-![alt text](image-2.png)
 
-## บันทึกงานสำคัญสำหรับเริ่มต้นวันพรุ่งนี้
+//3. SCRIPT-run :
+php app/Constant/0_Runner_run.php
 
-1.  (Add / Delete Table): เพิ่มฟังก์ชันสำหรับสร้าง (Add) และลบ (Delete) Table ใหม่ในส่วนของ Entities
+to do this: MakeMigration files and
+php artisan migrate:fresh
 
-2.  (Entities Tab)ฟังก์ชันสลับฟิลด์ (Add / Remove Fields):
-    พัฒนาระบบให้สามารถคลิกเครื่องหมายกากบาท (X) ที่ฟิลด์ฝั่งซ้ายเพื่อนำฟิลด์ออกจาก
-    Table และคลิกเลือกฟิลด์จากรายการ "all existing fields to choose" ฝั่งขวาเพื่อเพิ่มเข้ามาใน
-    Table ได้อย่างอิสระจัดการตาราง
+//4. SCRIPT-run :
+php app/Constant/3_EntityGenerator.php
 
-## GEMINI สรุป
-
-1. Rename Table Names
-    - พัฒนาระบบเปลี่ยนชื่อ Table ให้สามารถแก้ไขและบันทึกลง Backend ได้ทันทีแบบ Real-time โดยไม่ต้องกดปุ่ม Save แยกต่างหาก
-
-    - รองรับการเปลี่ยนชื่อได้ทั้งจากส่วนของ App Data Sub-Tab (t) และในส่วนของหน้า Entities เพื่อความยืดหยุ่นในการใช้งาน
-
-2. Entity CRUD & Field Management
-    - จัดการระบบเลือกฟิลด์ซ้าย-ขวา โดยการคลิกนำฟิลด์เข้าออกระหว่าง Table/Selected Fields กับ All Existing Fields ให้สอดคล้องกับแต่ละ Table
-
-    - เพิ่มความสามารถในการสร้าง (Add) และลบ (Delete) Table รวมถึงการจัดการข้อมูลในโครงสร้าง JSON ของ Entities ให้สมบูรณ์
+to do this:
+gen DTOs , Models , Controllers
+```

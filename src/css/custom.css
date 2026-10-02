@@ -51,3 +51,36 @@
     --ifm-md-max-width: 100% !important; /* สั่งให้เนื้อหามาร์กดาวน์แผ่กว้างเต็มพิกัด */
     --content-width: 100% !important;
 }
+/* ปรับแต่งการแสดงผล Mermaid ใน Docusaurus ให้มีสีสันและอ่านง่ายขึ้น */
+.docusaurus-mermaid-container {
+    display: flex;
+    justify-content: center;
+    background-color: #1e1e2e; /* พื้นหลังเข้มแนวโทนคอนโซล */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+/* ปรับสีตัวอักษรและเส้นเชื่อมในไดอะแกรมให้ตัดกับพื้นหลัง */
+.docusaurus-mermaid-container text {
+    font-family: inherit !important;
+    fill: #cdd6f4 !important; /* สีตัวหนังสือสว่าง อ่านง่าย */
+    font-size: 14px !important;
+}
+
+.docusaurus-mermaid-container .node rect,
+.docusaurus-mermaid-container .node circle,
+.docusaurus-mermaid-container .node polygon {
+    stroke: #89b4fa !important; /* สีขอบโหนด */
+    fill: #313244 !important; /* สีพื้นหลังโหนด */
+}
+
+.docusaurus-mermaid-container .edgePath path {
+    stroke: #a6e3a1 !important; /* สีเส้นเชื่อม flow */
+    stroke-width: 2px !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel {
+    background-color: #1e1e2e !important;
+    color: #fab387 !important; /* สีข้อความบนเส้นเชื่อม */
+}

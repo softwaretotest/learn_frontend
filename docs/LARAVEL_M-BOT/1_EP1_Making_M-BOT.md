@@ -135,7 +135,7 @@ php artisan tinker
 ## Make User Migration
 
 ```bash
-php app/Constant/0_Runner.php
+php app/Constant/0_Runner_run.php
 
 php artisan migrate:fresh
 

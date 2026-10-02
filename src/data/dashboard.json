@@ -14,7 +14,7 @@
   {
     "id": "CONVENTION",
     "label": "CONVENTION",
-    "slug": "/docs/CONVENTION/naming",
+    "slug": "/docs/CONVENTION/JSDoc",
     "children": []
   },
   {
@@ -38,13 +38,13 @@
   {
     "id": "LARAVEL",
     "label": "LARAVEL",
-    "slug": "/docs/LARAVEL/bash_cmd",
+    "slug": "/docs/LARAVEL/DTO_vs_Model---Ctrl_vs_Service",
     "children": []
   },
   {
     "id": "LARAVEL_M-BOT",
     "label": "LARAVEL M BOT",
-    "slug": "/docs/LARAVEL_M-BOT/EP1_Making_M-BOT",
+    "slug": "/docs/LARAVEL_M-BOT/history_of_M-BOT",
     "children": []
   },
   {

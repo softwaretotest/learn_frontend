@@ -5,6 +5,8 @@
 ### warning: in the working copy of 'old/README.md', LF will be replaced by CRLF the next time Git touches it
 
 ```bash
+git config --global core.ctrf true
+
 git config --global core.autocrlf false
 
 ```
@@ -254,6 +256,14 @@ git switch main
 
 ---
 
+## restore a whole folder in a git project
+
+```bash
+git checkout -- app/Http/Controllers/
+
+git checkout HEAD -- app/Constant/M_JSON/Entities.json
+```
+
 ## 🧹 Cleanup
 
 ### ลบไฟล์ Untracked
@@ -278,6 +288,10 @@ git clean -fdx
 
 ```bash
 git clone https://github.com/user/repository.git
+
+e.g.
+
+git remote add origin https://github.com/softwaretotest/ecommerce.git
 ```
 
 ---
@@ -549,4 +563,29 @@ git restore app/Constant/M_JSON/App-Data.json
 
 ```bash
 git diff a185a12 55dcc9b > diff_result.txt
+```
+
+## rename laravel / react project
+
+### e.g. from ecommerce to m-project
+
+1. close all vscode and tool that connect to the project
+2. Ctrl+C stop vite , then delete cache and npm run dev again
+
+```bash
+rm -rf node_modules/.vite
+npm run dev
+```
+
+3. rename and update remote git
+
+3.1 rename the project in git repo. and git push
+![alt text](image.png)
+
+3.2 update remote for git , check with git remote -v and git push:
+
+```bash
+git remote set-url origin https://github.com/softwaretotest/m-project
+git remote -v
+git push
 ```
