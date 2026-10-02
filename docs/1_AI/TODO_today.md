@@ -2,9 +2,6 @@
 
 #### งานวันนี้
 
-![alt text](image-3.png)
-![alt text](image-4.png)
-
 ## automate all script
 
 - run script 1 and 2

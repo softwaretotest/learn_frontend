@@ -1,9 +1,5 @@
 # Phase 3 : Binding States to UI
 
-## first handle special field like currency
-
-![alt text](image-5.png)
-
 ## Work Plan
 
 ```text

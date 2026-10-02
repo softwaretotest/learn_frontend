@@ -82,5 +82,18 @@
 
 .docusaurus-mermaid-container .edgeLabel {
     background-color: #1e1e2e !important;
-    color: #fab387 !important; /* สีข้อความบนเส้นเชื่อม */
+    color: #ffffff !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel text,
+.docusaurus-mermaid-container .edgeLabel span,
+.docusaurus-mermaid-container .edgeLabel p {
+    font-size: 10px !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel span,
+.docusaurus-mermaid-container .edgeLabel p {
+    white-space: nowrap !important;
 }
